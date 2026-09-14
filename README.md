@@ -21,8 +21,11 @@ This will create a new anaconda environment and install the required dependencie
 
 Now if everything went smoothly you can run commands from the "crystals.sage" interface. Try the following in sage to test if it works.
 >>view(graphs.PetersenGraph())
+>>
 >>view(digraphs.ButterflyGraph(1))
+>>
 >>render([2,1],3)
+>>
 >>render([1,1],8,null_edges=[1,7],option='-A')
 
 Try rendering with different options, or looking at the docstring by using render?
