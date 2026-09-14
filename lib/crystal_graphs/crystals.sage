@@ -1,4 +1,4 @@
-# ----- Imports -----
+# ----- IMPORTS -----
 from sage.graphs.graph_latex import check_tkz_graph
 from sage.misc.viewer import viewer
 import dot2tex
@@ -17,7 +17,7 @@ elif platform == "win32":
 
 
 
-# ----- Functions -----
+# ----- FUNCTIONS -----
 def generate(Lambda, n):
     """Create a new CrystalOfTableaux_with_category with vertices as SSYT with values from 1 to n in shape Lambda."""
     B = crystals.Tableaux(['A',n-1], shape=Lambda)
@@ -89,7 +89,7 @@ def display(graph, option = '-d', label_list = [], vertex_limit = 200, log = Fal
                      '-a': lambda c: chr(l_index[c]+97),
                      '-b': lambda c: "",
                      '-d': lambda c: c,
-                     '-l': label[l_index[c]],
+                     '-l': lambda c: label_list[l_index[c]],
                      '-n': lambda c: str(l_index[c])}
 
     if(option not in label_options.keys()): raise(ValueError('Provided "option" is invalid. See docstring for use'))
@@ -128,4 +128,4 @@ def render(Lambda, n, option = 'default', label_list = [] , null_edges = [], dep
     '''
     B = generate(Lambda, n)
     G = ranking(B, colors=null_edges, depth = depth)
-    display(G, label=label, vertex_limit=vertex_limit, log=True)
+    display(G, option=option, vertex_limit=vertex_limit, log=True)
